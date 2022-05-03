@@ -5,6 +5,7 @@ import FooterContacts from '../footer-contacts/footer-contacts';
 import Logo from '../logo/logo';
 
 function FooterScreen():JSX.Element {
+
   return (
     <div className="footer__container container">
       <Logo />

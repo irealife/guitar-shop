@@ -6,7 +6,7 @@ enum AppRoute {
 
 enum APIRoute {
   Guitars = '/guitars',
-  Comments = '/comments',
+  Comments = 'comments',
   Coupons = '/coupons',
   Orders = '/orders',
 }
@@ -22,9 +22,23 @@ enum Sorts {
   byPopular = 'по популярности',
 }
 
+enum MenuItems {
+  catalog = 'Каталог',
+  whereBuy = 'Где купить?',
+  aboutCompany = 'О компании',
+}
+
+const INITIAL_GUITAR_COMMENT_COUNT = 4;
+const SHOW_MORE_COMMENTS_STEP = 4;
+const MAX_GUITAR_COUNT = 9;
+
 export {
   AppRoute,
   APIRoute,
   Coupons,
-  Sorts
+  Sorts,
+  MenuItems,
+  INITIAL_GUITAR_COMMENT_COUNT,
+  SHOW_MORE_COMMENTS_STEP,
+  MAX_GUITAR_COUNT
 };

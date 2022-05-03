@@ -1,12 +1,32 @@
-import React from 'react';
+import React, {MouseEvent} from 'react';
+import {MenuItems} from '../../const';
 
-function Navigation(): JSX.Element {
+type NavigationProps = {
+  menuItems: MenuItems[],
+  currentMenuItem: MenuItems,
+  onChangeMenuItemType: (menuItem: MenuItems) => void,
+}
+
+function Navigation({menuItems, currentMenuItem, onChangeMenuItemType}: NavigationProps): JSX.Element {
+
+  const linkMainNav = 'link main-nav__link';
+  const linkMainNavCurrent = 'link--current';
+
   return (
     <nav className="main-nav">
       <ul className="main-nav__list">
-        <li><a className="link main-nav__link link--current" href="#">Каталог</a></li>
-        <li><a className="link main-nav__link" href="#">Где купить?</a></li>
-        <li><a className="link main-nav__link" href="#">О компании</a></li>
+        {menuItems.map((item) => (
+          <li
+            key={item}
+            onClick={(evt:MouseEvent<HTMLElement>) => {evt.preventDefault(); onChangeMenuItemType(item);}}
+          >
+            <a
+              className={[linkMainNav, item === currentMenuItem ? linkMainNavCurrent : ''].join(' ')}
+            >
+              {item}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );

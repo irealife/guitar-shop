@@ -15,12 +15,19 @@ function CatalogSort({sorts, activeSort, onChangeSortType}:SortProps):JSX.Elemen
       <h2 className="catalog-sort__title">Сортировать:</h2>
       <div className="catalog-sort__type">
         {sorts.map((sort) => (
-          <button className={[sortType, sort === activeSort ? sortTypeActive : ''].join(' ')} key={sort} aria-label={sort} onClick={(evt:MouseEvent<HTMLButtonElement>) => {evt.preventDefault(); onChangeSortType(sort);}}>{sort}</button>
+          <button
+            className={[sortType, sort === activeSort ? sortTypeActive : ''].join(' ')}
+            key={sort}
+            aria-label={sort}
+            onClick={(evt:MouseEvent<HTMLButtonElement>) => {evt.preventDefault(); onChangeSortType(sort);}}
+          >
+            {sort}
+          </button>
         ))}
       </div>
       <div className="catalog-sort__order">
-        <button className="catalog-sort__order-button catalog-sort__order-button--up catalog-sort__order-button--active" aria-label="По возрастанию"></button>
-        <button className="catalog-sort__order-button catalog-sort__order-button--down" aria-label="По убыванию"></button>
+        <button className="catalog-sort__order-button catalog-sort__order-button--up catalog-sort__order-button--active" aria-label="По возрастанию"/>
+        <button className="catalog-sort__order-button catalog-sort__order-button--down" aria-label="По убыванию"/>
       </div>
     </div>
   );
